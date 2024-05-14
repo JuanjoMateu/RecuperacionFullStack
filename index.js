@@ -1,9 +1,13 @@
 const express = require('express');
+const dbConnection = require('./config/config.js')
 const app = express()
+require('dotenv').config()
+const PORT = process.env.PORT || 4000
+const routes = require('./routes/routes.js')
 
-const PORT = 3000
+app.use('/', routes)
 
-app.get('/', (req, res) => {res.send('Lista de contactos')})
+dbConnection()
 
 app.listen(PORT, () => {
     console.log(`Express está escuchando en el puerto http://localhost:${PORT}`)
