@@ -5,6 +5,7 @@ require('dotenv').config()
 const PORT = process.env.PORT || 4000
 const routes = require('./routes/routes.js')
 
+app.use(express.json())
 app.use('/', routes)
 
 dbConnection()

@@ -1,7 +1,10 @@
 const express = require('express')
 const router = express.Router()
-const Model = require('../models/Model.js')
+const Contact = require('../models/Model.js')
+const ContactController = require('../controllers/ContactControllers.js')
 
-router.get('/', (req, res) => {res.send('Lista de contactos de dentro de las rutas')})
+router.post('/create', ContactController.create)
+router.get('/', ContactController.getAll)
+router.get('/getAll', ContactController.getAllSSR)
 
 module.exports = router

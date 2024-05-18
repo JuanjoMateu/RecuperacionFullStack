@@ -1,12 +1,14 @@
 const mongoose = require('mongoose')
 
-const ModelSchema = new mongoose.Schema(
+const ContactSchema = new mongoose.Schema(
     {
-        title: String,
-        completed: Boolean
+        name: { type: String, required: true},
+        phone: { type: Number, required: true},
+        email: { type: String}
+        
     }, {timestamps: true}
 )
 
-const Model = mongoose.model('Model', ModelSchema)
+const Contact = mongoose.model('Contact', ContactSchema)
 
-module.exports = Model
+module.exports = Contact
